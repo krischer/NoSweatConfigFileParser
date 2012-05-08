@@ -324,9 +324,9 @@ void NoSweat::NoSweatConfigFileParser::add_default_bool_value(const std::string 
         return;
     std::transform(value.begin(), value.end(), value.begin(), ::tolower);
     bool bool_value;
-    if (value == "0" || value == "false" || value == "no" || value == "n")
+    if (value == "0" || value == "false" || value == "no" || value == "n" || value == "off")
         bool_value = false;
-    else if (value == "1" || value == "true" || value == "yes" || value == "y")
+    else if (value == "1" || value == "true" || value == "yes" || value == "y" || value == "on")
         bool_value = true;
     else
         return;

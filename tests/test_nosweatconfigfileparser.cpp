@@ -49,6 +49,8 @@ int main() {
     assert_value<bool>("this_one_is_true", config_parser.get_bool("this_one_is_true"), true);
     assert_value<bool>("also_true", config_parser.get_bool("also_true"), true);
     assert_value<bool>("value_is_false", config_parser.get_bool("value_is_false"), false);
+    assert_value<bool>("on_off_true", config_parser.get_bool("on_off_true"), true);
+    assert_value<bool>("on_off_false", config_parser.get_bool("on_off_false"), false);
 
     // Test the "specialities".
     assert_value<std::string>("key names can have spaces", config_parser.get_string("key names can have spaces"),

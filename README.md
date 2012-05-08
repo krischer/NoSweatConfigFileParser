@@ -54,7 +54,23 @@ It has no dependencies, but needs a compiler supporting C++11. Currently only te
 g++-4.7 -std=c++11 -Ipath/to/nosweatconfigfileparser ...
 ```
 
-## Usage
+## Example Usage
+Assuming two files,
+
+**default_config.cfg**
+```
+int number_of_connections=1
+float maximum bandwidth=123.45
+```
+
+and
+
+**config.cfg**
+```
+number_of_connections=2
+```
+
+it can be used as follows
 
 ```c++
 #include <iostream>
@@ -67,6 +83,15 @@ int main() {
     // to the user configuration file.
     NoSweatConfigFileParser config_parser = NoSweatConfigFileParser("default_config.cfg", "config.cfg");
     // Everything is already parsed and ready to be used.
-    std::cout << "From config file: " << config_parser.get_int("value_name") << std::endl;
+    std::cout << "Number of connections: " << config_parser.get_int("number_of_connections") << std::endl;
+    std::cout << "Maximum bandwidth: " << config_parser.get_float("maximum bandwidth") << std::endl;
 }
+
+```
+
+**Output:**
+
+```
+Number of connections: 2
+Maximum bandwidth: 123.45
 ```

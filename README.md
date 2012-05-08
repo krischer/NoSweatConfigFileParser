@@ -42,9 +42,8 @@ The user configuration file can overwrite values set in the default configuratio
 [user options]
 ; Allow more connections per user than the default value.
 connections_per_user = 2
-
-See the example [user configuration file](https://github.com/Kurli/NoSweatConfigFileParser/blob/master/tests/config.cfg) for some more information.
 ```
+See the example [user configuration file](https://github.com/Kurli/NoSweatConfigFileParser/blob/master/tests/config.cfg) for some more information.
 
 ## Installation
 No need to compile anything, just put the NoSweatConfigFileParser.hpp file in one of your project's include paths or point the compiler to the directory containing the file. Most compilers currently also need to be told to compile with C++11 support.

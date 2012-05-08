@@ -95,6 +95,12 @@ int main() {
 ```
 Number of connections: 2
 Maximum bandwidth: 123.45
+
+NoSweatConfigFileParser object: default_config_file='default_config.cfg', config_file='config.cfg'
+        Integer values:
+                number_of_connections: 2 (default value: 1)
+        Float values:
+                maximum bandwidth: 123.45 (default value: 123.45)
 ```
 
 ## Short reference

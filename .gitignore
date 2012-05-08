@@ -10,3 +10,6 @@
 *.lai
 *.la
 *.a
+
+# Test binary
+tests/test_nosweatconfigfileparser

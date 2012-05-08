@@ -103,7 +103,7 @@ All values will be converted into the corresponding type upon parsing. If it can
 - for integers: Any string std::stoi() can handle.
 - for floats: Any string std::stof() can handle.
 - for strings: Any string.
-- for booleans: true/yes/y/on/1 and false/no/n/off/0 (case-insensitive).
+- for booleans: true/yes/y/on/1/right and false/no/n/off/0/wrong (case-insensitive).
 
 ## Installation
 No need to compile anything, just put the *NoSweatConfigFileParser.hpp* file in one of your project's include paths or point the compiler to the directory containing the file. Most compilers currently also need to be told to compile with C++11 support.

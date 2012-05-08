@@ -13,13 +13,15 @@ gcc -Ipath/to/nosweatconfigfileparser ...
 ## Usage
 
 ```c++
-include "NoSweatConfigFileParser.hpp"
-using namespace NoSweat
+#include "NoSweatConfigFileParser.hpp"
+#include <iostream>
+
+using namespace NoSweat;
 
 int main() {
     // Init with two file paths, one to the default configuration file and one
     // to the user configuration file.
-    config_parser = NoSweatConfigFileParser("default_config.cfg", "config.cfg");
+    NoSweatConfigFileParser config_parser = NoSweatConfigFileParser("default_config.cfg", "config.cfg");
     // Everything is already parsed and ready to be used.
     std::cout << "From config file: " << config_parser.get_int("value_name") << std::endl;
 }

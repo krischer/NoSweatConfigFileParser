@@ -67,10 +67,13 @@ namespace NoSweat {
             // Set a given key to value. Will search all maps and determine the key automatically.
             inline void set_value(const std::string key, std::string value);
 
-            /// Accepted types of configuration variables. The additional space
-            /// is important because otherwise it could as well be a key name.
-            std::vector<std::string> accepted_value_types_{"int ", "float ", "string ", "bool "};
-            std::string accepted_assignment_operators_{":="};
+            // Accepted types of configuration variables. The additional space
+            // is important because otherwise it could as well be a key name.
+            const std::vector<std::string> accepted_value_types_{"int ", "float ", "string ", "bool "};
+            const std::string accepted_assignment_operators_{":="};
+            // Case-insensitive accepted names for the boolean values.
+            const std::vector<std::string> accepted_boolean_true_values_{"true", "yes", "y", "on", "1", "right"};
+            const std::vector<std::string> accepted_boolean_false_values_{"false", "no", "n", "off", "0", "wrong"};
             // Path of the default configuration file.
             std::string default_config_file_;
             // Path of the configuration file.
@@ -322,11 +325,15 @@ void NoSweat::NoSweatConfigFileParser::add_default_string_value(const std::strin
 void NoSweat::NoSweatConfigFileParser::add_default_bool_value(const std::string key, std::string value) {
     if (!is_key_available(key))
         return;
+    // Transform to lower case.
     std::transform(value.begin(), value.end(), value.begin(), ::tolower);
     bool bool_value;
-    if (value == "0" || value == "false" || value == "no" || value == "n" || value == "off")
+    // Map to corresponding boolean value.
+    if (std::find(accepted_boolean_false_values_.begin(), accepted_boolean_false_values_.end(), value) !=
+        accepted_boolean_false_values_.end())
         bool_value = false;
-    else if (value == "1" || value == "true" || value == "yes" || value == "y" || value == "on")
+    else if (std::find(accepted_boolean_true_values_.begin(), accepted_boolean_true_values_.end(), value) != 
+        accepted_boolean_true_values_.end())
         bool_value = true;
     else
         return;
@@ -397,10 +404,13 @@ void NoSweat::NoSweatConfigFileParser::set_bool_value(const std::string key, std
     if (bool_config_values_.find(key) == bool_config_values_.end())
         return;
     std::transform(value.begin(), value.end(), value.begin(), ::tolower);
+    // Map to corresponding boolean value.
     bool bool_value;
-    if (value == "0" || value == "false" || value == "no" || value == "n")
+    if (std::find(accepted_boolean_false_values_.begin(), accepted_boolean_false_values_.end(), value) !=
+        accepted_boolean_false_values_.end())
         bool_value = false;
-    else if (value == "1" || value == "true" || value == "yes" || value == "y")
+    else if (std::find(accepted_boolean_true_values_.begin(), accepted_boolean_true_values_.end(), value) != 
+        accepted_boolean_true_values_.end())
         bool_value = true;
     else
         return;

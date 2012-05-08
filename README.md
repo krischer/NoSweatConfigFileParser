@@ -106,8 +106,8 @@ NoSweat::NoSweatConfigFileParser::NoSweatConfigFileParser(std::string default_co
 NoSweat::NoSweatConfigFileParser::NoSweatConfigFileParser(std::string default_config_file_path,
                                                           std::string config_file_path); 
 
-// Read the config file. Useful if it has not been read or has changed.  void
-NoSweat::NoSweatConfigFileParser::read_config_file(std::string config_file_path);
+// Read the config file. Useful if it has not been read or has changed.
+void NoSweat::NoSweatConfigFileParser::read_config_file(std::string config_file_path);
 
 // Print the current state of the configuration to stdout. Useful for debugging.
 void NoSweat::NoSweatConfigFileParser::print_configuration();

@@ -22,6 +22,9 @@ SOFTWARE.
 
 /// @file NoSweatConfigFileParser.hpp
 
+#ifndef __NOSWEAT_CONFIGFILE_PARSER__
+#define __NOSWEAT_CONFIGFILE_PARSER__
+
 
 #include <algorithm>
 #include <fstream>
@@ -35,34 +38,34 @@ SOFTWARE.
 namespace NoSweat {
     class NoSweatConfigFileParser {
         public:
-            NoSweatConfigFileParser(std::string default_config_file);
-            NoSweatConfigFileParser(std::string default_config_file, std::string config_file);
-            ~NoSweatConfigFileParser();
-            void print_configuration();
-            int get_int(std::string key);
-            float get_float(std::string key);
-            std::string get_string(std::string key);
-            bool get_bool(std::string key);
-            void read_config_file(std::string config_file);
+            inline NoSweatConfigFileParser(std::string default_config_file);
+            inline NoSweatConfigFileParser(std::string default_config_file, std::string config_file);
+            inline ~NoSweatConfigFileParser();
+            inline void print_configuration();
+            inline int get_int(std::string key);
+            inline float get_float(std::string key);
+            inline std::string get_string(std::string key);
+            inline bool get_bool(std::string key);
+            inline void read_config_file(std::string config_file);
 
         private:
-            NoSweatConfigFileParser();
-            void parse_default_config_file();
-            bool is_key_available(std::string key);
+            inline NoSweatConfigFileParser();
+            inline void parse_default_config_file();
+            inline bool is_key_available(std::string key);
 
             // Convert the string value to the corresponding type and add to the default key/value maps.
-            void add_default_integer_value(const std::string key, const std::string value);
-            void add_default_float_value(const std::string key, const std::string value);
-            void add_default_string_value(const std::string key, std::string value);
-            void add_default_bool_value(const std::string key, std::string value);
+            inline void add_default_integer_value(const std::string key, const std::string value);
+            inline void add_default_float_value(const std::string key, const std::string value);
+            inline void add_default_string_value(const std::string key, std::string value);
+            inline void add_default_bool_value(const std::string key, std::string value);
 
             // Set an already existing key to a value. If the key does not exist, nothing will happen.
-            void set_integer_value(const std::string key, const std::string value);
-            void set_float_value(const std::string key, const std::string value);
-            void set_string_value(const std::string key, std::string value);
-            void set_bool_value(const std::string key, std::string value);
+            inline void set_integer_value(const std::string key, const std::string value);
+            inline void set_float_value(const std::string key, const std::string value);
+            inline void set_string_value(const std::string key, std::string value);
+            inline void set_bool_value(const std::string key, std::string value);
             // Set a given key to value. Will search all maps and determine the key automatically.
-            void set_value(const std::string key, std::string value);
+            inline void set_value(const std::string key, std::string value);
 
             /// Accepted types of configuration variables. The additional space
             /// is important because otherwise it could as well be a key name.
@@ -467,3 +470,5 @@ bool NoSweat::NoSweatConfigFileParser::get_bool(std::string key) {
         return false;
     return bool_config_values_[key].second;
 }
+
+#endif

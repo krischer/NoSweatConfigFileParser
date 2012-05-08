@@ -3,6 +3,56 @@ NoSweatConfigFileParser
 
 Simple configuration file parser for C++11 with a purely file based setup, implemented as a header only library and under [MIT license](http://www.opensource.org/licenses/MIT).
 
+## Example Usage
+Assuming two files,
+
+**default_config.cfg**
+```
+int number_of_connections=1
+float maximum bandwidth=123.45
+```
+
+and
+
+**config.cfg**
+```
+number_of_connections=2
+```
+
+it can be used as follows:
+
+```c++
+#include <iostream>
+#include "NoSweatConfigFileParser.hpp"
+
+using namespace NoSweat;
+
+int main() {
+    // Init with two file paths, one to the default configuration file and one
+    // to the user configuration file.
+    NoSweatConfigFileParser config_parser{"default_config.cfg", "config.cfg"};
+    // Everything is already parsed and ready to be used.
+    std::cout << "Number of connections: " << config_parser.get_int("number_of_connections") << std::endl;
+    std::cout << "Maximum bandwidth: " << config_parser.get_float("maximum bandwidth") << std::endl;
+    // The current content of the parser can also be printed for debugging purposes.
+    std::cout << std::endl;
+    config_parser.print_configuration();
+}
+```
+
+**Output:**
+
+```
+Number of connections: 2
+Maximum bandwidth: 123.45
+
+NoSweatConfigFileParser object: default_config_file='default_config.cfg', config_file='config.cfg'
+        Integer values:
+                number_of_connections: 2 (default value: 1)
+        Float values:
+                maximum bandwidth: 123.45 (default value: 123.45)
+```
+
 ## Why another configuration file parser
 Sometimes I just want to be able to configure some values in the early stages of a project without having to care about external dependencies or, like many configuration file parsers do, having to specify all key/value pairs and default values in the code.
 
@@ -54,56 +104,6 @@ It has no dependencies, but needs a compiler supporting C++11. Currently only te
 
 ```
 g++-4.7 -std=c++11 -Ipath/to/nosweatconfigfileparser ...
-```
-
-## Example Usage
-Assuming two files,
-
-**default_config.cfg**
-```
-int number_of_connections=1
-float maximum bandwidth=123.45
-```
-
-and
-
-**config.cfg**
-```
-number_of_connections=2
-```
-
-it can be used as follows:
-
-```c++
-#include <iostream>
-#include "NoSweatConfigFileParser.hpp"
-
-using namespace NoSweat;
-
-int main() {
-    // Init with two file paths, one to the default configuration file and one
-    // to the user configuration file.
-    NoSweatConfigFileParser config_parser{"default_config.cfg", "config.cfg"};
-    // Everything is already parsed and ready to be used.
-    std::cout << "Number of connections: " << config_parser.get_int("number_of_connections") << std::endl;
-    std::cout << "Maximum bandwidth: " << config_parser.get_float("maximum bandwidth") << std::endl;
-    // The current content of the parser can also be printed for debugging purposes.
-    std::cout << std::endl;
-    config_parser.print_configuration();
-}
-```
-
-**Output:**
-
-```
-Number of connections: 2
-Maximum bandwidth: 123.45
-
-NoSweatConfigFileParser object: default_config_file='default_config.cfg', config_file='config.cfg'
-        Integer values:
-                number_of_connections: 2 (default value: 1)
-        Float values:
-                maximum bandwidth: 123.45 (default value: 123.45)
 ```
 
 ## Short reference

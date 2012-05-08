@@ -98,8 +98,8 @@ Maximum bandwidth: 123.45
 ## Short reference
 
 ### Constructors and general methods.
-**NoSweat::NoSweatConfigFileParser::NoSweatConfigFileParser(std::string default_config_file_path)**
-Constructor that just parses the default config file.
+- **NoSweat::NoSweatConfigFileParser::NoSweatConfigFileParser(std::string default_config_file_path)**
+  Constructor that just parses the default config file.
 
 NoSweat::NoSweatConfigFileParser::NoSweatConfigFileParser(std::string default_config_file_path, std::string config_file_path)
 :    Constructor that also parses the user config file.

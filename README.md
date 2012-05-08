@@ -97,6 +97,14 @@ connections_per_user = 2
 ```
 See the example [user configuration file](https://github.com/Kurli/NoSweatConfigFileParser/blob/master/tests/config.cfg) for some more information.
 
+### Acceptable values
+All values will be converted into the corresponding type upon parsing. If it cannot be converted it will not be parsed.
+
+- for integers: Any string std::stoi() can handle.
+- for floats: Any string std::stof() can handle.
+- for strings: Any string.
+- for booleans: true/yes/y/on/1 and false/no/n/off/0 (case-insensitive).
+
 ## Installation
 No need to compile anything, just put the *NoSweatConfigFileParser.hpp* file in one of your project's include paths or point the compiler to the directory containing the file. Most compilers currently also need to be told to compile with C++11 support.
 

@@ -87,6 +87,9 @@ int main() {
     // Everything is already parsed and ready to be used.
     std::cout << "Number of connections: " << config_parser.get_int("number_of_connections") << std::endl;
     std::cout << "Maximum bandwidth: " << config_parser.get_float("maximum bandwidth") << std::endl;
+    // The current content of the parser can also be printed for debugging purposes.
+    std::cout << std::endl;
+    config_parser.print_configuration();
 }
 ```
 

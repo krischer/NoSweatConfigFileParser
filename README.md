@@ -70,7 +70,7 @@ and
 number_of_connections=2
 ```
 
-it can be used as follows
+it can be used as follows:
 
 ```c++
 #include <iostream>
@@ -81,12 +81,11 @@ using namespace NoSweat;
 int main() {
     // Init with two file paths, one to the default configuration file and one
     // to the user configuration file.
-    NoSweatConfigFileParser config_parser = NoSweatConfigFileParser("default_config.cfg", "config.cfg");
+    NoSweatConfigFileParser config_parser{"default_config.cfg", "config.cfg"};
     // Everything is already parsed and ready to be used.
     std::cout << "Number of connections: " << config_parser.get_int("number_of_connections") << std::endl;
     std::cout << "Maximum bandwidth: " << config_parser.get_float("maximum bandwidth") << std::endl;
 }
-
 ```
 
 **Output:**

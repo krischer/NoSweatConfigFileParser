@@ -25,7 +25,7 @@ string default_uri = www.google.de
 bool is_admin = false
 ```
 
-Everything after the type specifier and before the assignment operator (= or :) will be considered part of the key name, and everything after the operator part of the value. See the example default configuration file Kurli/NoSweatConfigFileParser/tests/default_config.cfg for some line it will and others it will not parse.
+Everything after the type specifier and before the assignment operator (= or :) will be considered part of the key name, and everything after the operator part of the value. See the example [default configuration file](https://github.com/Kurli/NoSweatConfigFileParser/blob/master/tests/default_config.cfg) for some line it will and others it will not parse.
 
 
 ### Installation

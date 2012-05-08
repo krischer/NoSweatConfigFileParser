@@ -98,29 +98,35 @@ Maximum bandwidth: 123.45
 ## Short reference
 
 ### Constructors and general methods.
-```NoSweat::NoSweatConfigFileParser::NoSweatConfigFileParser(std::string default_config_file_path)```
-Constructor that just parses the default config file.
+```c++
+// Constructor that just parses the default config file.
+NoSweat::NoSweatConfigFileParser::NoSweatConfigFileParser(std::string default_config_file_path);
 
-```NoSweat::NoSweatConfigFileParser::NoSweatConfigFileParser(std::string default_config_file_path, std::string config_file_path)```
+// Constructor that also parses the user config file.
+NoSweat::NoSweatConfigFileParser::NoSweatConfigFileParser(std::string default_config_file_path,
+        std::string config_file_path); 
 
-Constructor that also parses the user config file.
+// Read the config file. Useful if it has not been read or has changed.  void
+NoSweat::NoSweatConfigFileParser::read_config_file(std::string config_file_path);
 
-void NoSweat::NoSweatConfigFileParser::read_config_file(std::string config_file_path)
-:    Read the config file. Useful if it has not been read or has changed.
-
-void NoSweat::NoSweatConfigFileParser::print_configuration()
-:    Print the current state of the configuration to stdout. Useful for debugging.
+// Print the current state of the configuration to stdout. Useful for debugging.
+void NoSweat::NoSweatConfigFileParser::print_configuration();
+```
 
 ### Retrieving values
 The type has to be specified. If no value exists for the given key name and implicitly given type, a default value (int:0, float:0.0, string:"", bool:false) will returned. No exception will ever be raised.
 
 
-int NoSweat::NoSweatConfigFileParser::get_int(std::string key_name)
-:    Get an integer config value.
-float NoSweat::NoSweatConfigFileParser::get_float(std::string key_name)
-:    Get a float config value.
-std::string NoSweat::NoSweatConfigFileParser::get_string(std::string key_name)
-:    Get a string config value.
-bool NoSweat::NoSweatConfigFileParser::get_bool(std::string key_name)
-:    Get a bool config value.
+```c++
+// Get an integer config value.
+int NoSweat::NoSweatConfigFileParser::get_int(std::string key_name);
 
+// Get a float config value.
+float NoSweat::NoSweatConfigFileParser::get_float(std::string key_name);
+
+// Get a string config value.
+std::string NoSweat::NoSweatConfigFileParser::get_string(std::string key_name);
+
+// Get a bool config value.
+bool NoSweat::NoSweatConfigFileParser::get_bool(std::string key_name);
+```

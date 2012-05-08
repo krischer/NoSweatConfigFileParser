@@ -18,7 +18,7 @@ The default configuration file specifies the type, the key name and the default 
 {int/float/string/bool} key_name {= or :} default_value
 ```
 
-Everything that does not fit this syntax will be silently ignored. This enables comments/grouping/...
+Everything that does not fit this syntax or cannot be handled by the parser will be silently ignored. This enables comments/grouping/...
 
 **Example:**
 
@@ -34,7 +34,7 @@ bool is_admin = false
 Everything after the type specifier and before the assignment operator (= or :) will be considered part of the key name, and everything after the operator part of the value. See the example [default configuration file](https://github.com/Kurli/NoSweatConfigFileParser/blob/master/tests/default_config.cfg) for some lines it will and others it will not parse.
 
 ### User configuration file
-The user configuration file can overwrite values set in the default configuration file. It has the same syntax as the default configuration file, except that the type specifier is optional. Any value not specified in the default configuration file, or specified with another type, will be ignored. The syntax is also compatible with standard [INI files](http://en.wikipedia.org/wiki/INI_file), although sections will be ignored and a flat hierarchy enforced.
+The user configuration file can overwrite values set in the default configuration file. It is intended to provide a simple configuration file for the user and has the same syntax as the default configuration file, except that the type specifier is optional. Any value not specified in the default configuration file, or specified with another type, will be ignored. The syntax is also compatible with standard [INI files](http://en.wikipedia.org/wiki/INI_file), although sections will be ignored and a flat hierarchy enforced.
 
 **Example:**
 
@@ -46,7 +46,7 @@ connections_per_user = 2
 See the example [user configuration file](https://github.com/Kurli/NoSweatConfigFileParser/blob/master/tests/config.cfg) for some more information.
 
 ## Installation
-No need to compile anything, just put the NoSweatConfigFileParser.hpp file in one of your project's include paths or point the compiler to the directory containing the file. Most compilers currently also need to be told to compile with C++11 support.
+No need to compile anything, just put the *NoSweatConfigFileParser.hpp* file in one of your project's include paths or point the compiler to the directory containing the file. Most compilers currently also need to be told to compile with C++11 support.
 
 It has no dependencies, but needs a compiler supporting C++11. Currently only tested with gcc 4.7.
 

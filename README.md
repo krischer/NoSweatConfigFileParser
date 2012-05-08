@@ -6,7 +6,7 @@ Simple configuration file parser for C++11 with a purely file based setup, imple
 ## Example Usage
 Assuming two files,
 
-**default_config.cfg**
+**default_config.cfg** - Contains the program's default configuration
 ```
 int number_of_connections=1
 float maximum bandwidth=123.45
@@ -14,7 +14,7 @@ float maximum bandwidth=123.45
 
 and
 
-**config.cfg**
+**config.cfg** - Contains the user's configuration
 ```
 number_of_connections=2
 ```

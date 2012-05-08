@@ -8,7 +8,7 @@ Sometimes I just want to be able to configure some values in the early stages of
 
 The NoSweatConfigFileParser can only deal with four different data types and does not have any advanced features, so at some point in a project you might want to move on to a more elaborate library like [Boost.Program_options](http://www.boost.org/doc/libs/1_49_0/doc/html/program_options.html).
 
-The parser is very relaxed in its behaviour and anything it cannot read will be silently ignored and any time the user tries to access a value that has not been defined, a default value, depending on the requested type will be returned. No exception will ever be raised nor can any operation fail.
+The parser is very relaxed in its behaviour and anything it cannot read will be silently ignored and any time the user tries to access a value that has not been defined, a default value, depending on the requested type, will be returned. No exception will ever be raised nor can any operation fail.
 
 ## Configuration
 The NoSweatConfigFileParser is configured completely via two files. The **default configuration file** and the **user configuration file**.
